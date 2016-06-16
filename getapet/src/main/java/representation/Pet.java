@@ -1,13 +1,19 @@
 package representation;
 
+import java.net.URL;
+
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 public class Pet {
-	// TODO: Deal with optional parameters
 	private int id;
 	private Category category;
+	@NotNull
 	private String name;
-	private String[] photoUrls;
+	@NotNull
+	@Size(min=1)
+	private URL[] photoUrls;
 	private Tag[] tags;
 	
 	@Pattern.List({
@@ -21,7 +27,7 @@ public class Pet {
 	 */
 	Pet() {}
 	
-	public Pet(int id, Category category, String name, String[] photoUrls, 
+	public Pet(int id, Category category, String name, URL[] photoUrls, 
 			Tag[] tags, String status) {
 		this.id = id;
 		this.category = category;
@@ -41,7 +47,7 @@ public class Pet {
 	public String getName() {
 		return name;
 	}
-	public String[] getPhotoUrls() {
+	public URL[] getPhotoUrls() {
 		return photoUrls;
 	}
 	public Tag[] getTags() {
