@@ -9,6 +9,8 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -63,13 +65,31 @@ public class GetapetApplicationTests {
 
 	@Test
 	public void createPetAllRequestParams() throws Exception {
+		// Build the request body
 		URL[] photoUrls = {new URL("http://test.com")};
 		Tag[] tags = {new Tag(0, "bulldog")};
 		String requestBody = json(new Pet(0, new Category(0, "dog"), 
 				"max", photoUrls, tags, "available"));
+		
+		// Call the API
 		this.mockMvc.perform(post("/pet")
                 .contentType(contentType)
                 .content(requestBody))
+                .andExpect(status().isCreated());
+	}
+	
+	@Test
+	public void createPetOnlyRequiredParams() throws Exception {
+		// Build the request body
+		JSONObject requestBody = new JSONObject();
+		requestBody.put("name", "max");
+		URL[] photoUrls = {new URL("http://test.com")};
+		requestBody.put("photoUrls", new JSONArray(photoUrls));
+		
+		// Call the API
+		this.mockMvc.perform(post("/pet")
+                .contentType(contentType)
+                .content(requestBody.toString()))
                 .andExpect(status().isCreated());
 	}
 
@@ -82,3 +102,4 @@ public class GetapetApplicationTests {
 	}
 
 }
+;
