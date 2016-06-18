@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 import java.io.IOException;
@@ -13,6 +14,10 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.core.IsNot;
+import org.hamcrest.core.IsNull;
+import org.hamcrest.core.StringEndsWith;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
@@ -28,6 +33,7 @@ import org.springframework.mock.http.MockHttpOutputMessage;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.HeaderResultMatchers;
 import org.springframework.web.context.WebApplicationContext;
 
 import application.GetapetApplication;
@@ -105,7 +111,9 @@ public class GetapetApplicationTests {
 		this.mockMvc.perform(post("/pet")
                 .contentType(contentType)
                 .content(requestBody))
-                .andExpect(status().isCreated());
+                .andExpect(status().isCreated())
+                .andExpect(header().string("Location", 
+                		new IsNot<String>(new IsNull<String>())));
 	}
 	
 	@Test
@@ -194,6 +202,22 @@ public class GetapetApplicationTests {
                 .andExpect(jsonPath("$.name", is(this.pet.getName())));
 	}
 	
+	@Test
+	public void getByNonExistentId() throws Exception {
+		// Call the API
+		this.mockMvc.perform(get("/pet/20")
+                .accept(contentType))
+                .andExpect(status().isNotFound());
+	}
+	
+	@Test
+	public void getByInvalidId() throws Exception {
+		// Call the API
+		this.mockMvc.perform(get("/pet/invalid")
+                .accept(contentType))
+                .andExpect(status().isBadRequest());
+	}
+	
 	/** -------------- DELETE /pet/{petId} --------------------------- */
 	@Test
 	public void deleteById() throws Exception {
@@ -201,6 +225,24 @@ public class GetapetApplicationTests {
 		this.mockMvc.perform(delete("/pet/" + this.pet.getResourceId())
                 .accept(contentType))
                 .andExpect(status().isNoContent());
+		
+		Assert.assertNull(this.petRepository.findOne(this.pet.getResourceId()));
+	}
+	
+	@Test
+	public void deleteByNonExistentId() throws Exception {
+		// Call the API
+		this.mockMvc.perform(delete("/pet/20")
+                .accept(contentType))
+                .andExpect(status().isNotFound());
+	}
+	
+	@Test
+	public void deleteByInvalidId() throws Exception {
+		// Call the API
+		this.mockMvc.perform(delete("/pet/invalid")
+                .accept(contentType))
+                .andExpect(status().isBadRequest());
 	}
 	
 	protected String json(Object o) throws IOException {
