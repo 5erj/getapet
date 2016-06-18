@@ -4,9 +4,9 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 import java.io.IOException;
@@ -14,10 +14,8 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
-import org.hamcrest.Matcher;
 import org.hamcrest.core.IsNot;
 import org.hamcrest.core.IsNull;
-import org.hamcrest.core.StringEndsWith;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Assert;
@@ -33,7 +31,6 @@ import org.springframework.mock.http.MockHttpOutputMessage;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.HeaderResultMatchers;
 import org.springframework.web.context.WebApplicationContext;
 
 import application.GetapetApplication;
