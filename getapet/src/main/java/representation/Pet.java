@@ -6,19 +6,39 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@Document(collection = "pets")
 public class Pet {
+	@Id
+	@JsonIgnore
+	private long resourceId;
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private int id;
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private Category category;
+	
 	@NotNull
 	private String name;
+	
 	@NotNull
 	@Size(min=1)
 	private URL[] photoUrls;
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private Tag[] tags;
 	
 	@Pattern.List({
 	    @Pattern(regexp="available|pending|sold"),
 	})
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private String status;
 
 	/* com.fasterxml.jackson looks for a default constructor
@@ -40,6 +60,10 @@ public class Pet {
 	public int getId() {
 		return id;
 	}
+	
+	public long getResourceId() {
+		return resourceId;
+	}
 
 	public Category getCategory() {
 		return category;
@@ -55,6 +79,10 @@ public class Pet {
 	}
 	public String getStatus() {
 		return status;
+	}
+	
+	public void setResourceId(long id) {
+		this.resourceId = id;
 	}
 
 }

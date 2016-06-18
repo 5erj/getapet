@@ -1,7 +1,12 @@
 package representation;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 public class Category {
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private int id;
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private String name;
 	
 	/* com.fasterxml.jackson looks for a default constructor

@@ -4,7 +4,6 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
@@ -31,6 +30,9 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
+import application.GetapetApplication;
+import repository.CounterRepository;
+import repository.PetRepository;
 import representation.Category;
 import representation.Pet;
 import representation.Tag;
@@ -43,13 +45,20 @@ public class GetapetApplicationTests {
 			MediaType.APPLICATION_JSON.getType(),
 			MediaType.APPLICATION_JSON.getSubtype(),
 			Charset.forName("utf8"));
-
+	@Autowired
+	private PetRepository petRepository;
+	
+	@Autowired
+	private CounterRepository counterRepository;
+	
 	@Autowired
 	private WebApplicationContext webApplicationContext;
 
 	private MockMvc mockMvc;
 
 	private HttpMessageConverter mappingJackson2HttpMessageConverter;
+	
+	private Pet pet;
 
 	@Autowired
 	void setConverters(HttpMessageConverter<?>[] converters) {
@@ -66,16 +75,31 @@ public class GetapetApplicationTests {
 	@Before
 	public void setup() throws Exception {
 		this.mockMvc = webAppContextSetup(webApplicationContext).build();
+		
+        this.petRepository.deleteAll();
+        this.counterRepository.deleteAll();
+        
+        URL[] photoUrls = {new URL("http://imgur.com/12345")};
+		Tag[] tags = {new Tag(0, "bulldog")};
+		Pet pet = new Pet(10, new Category(0, "dog"), 
+				"max", photoUrls, tags, "available");
+		pet.setResourceId(100);
+        this.pet = petRepository.save(pet);
 	}
 	
 	/** -------------- POST /pet --------------------------- */
 	@Test
 	public void createPetAllRequestProperties() throws Exception {
 		// Build the request body
-		URL[] photoUrls = {new URL("http://test.com")};
-		Tag[] tags = {new Tag(0, "bulldog")};
-		String requestBody = json(new Pet(0, new Category(0, "dog"), 
-				"max", photoUrls, tags, "available"));
+		int id = 1;
+		Category category = new Category(0, "cat");
+		String name = "garfield";
+		URL[] photoUrls = {new URL("http://imgur.com/1234567")};
+		Tag[] tags = {new Tag(0, "orange tabby")};
+		String status = "sold";
+		
+		String requestBody = json(new Pet(id, category, name, 
+												photoUrls, tags, status));
 		
 		// Call the API
 		this.mockMvc.perform(post("/pet")
@@ -163,19 +187,18 @@ public class GetapetApplicationTests {
 	@Test
 	public void getById() throws Exception {
 		// Call the API
-		this.mockMvc.perform(get("/pet/0")
+		this.mockMvc.perform(get("/pet/" + this.pet.getResourceId())
                 .accept(contentType))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(contentType))
-                .andExpect(jsonPath("$.id", is(0)))
-                .andExpect(jsonPath("$.name", is("max")));
+                .andExpect(jsonPath("$.id", is(this.pet.getId())))
+                .andExpect(jsonPath("$.name", is(this.pet.getName())));
 	}
 	
 	/** -------------- DELETE /pet/{petId} --------------------------- */
 	@Test
 	public void deleteById() throws Exception {
 		// Call the API
-		this.mockMvc.perform(delete("/pet/0")
+		this.mockMvc.perform(delete("/pet/" + this.pet.getResourceId())
                 .accept(contentType))
                 .andExpect(status().isNoContent());
 	}
@@ -187,6 +210,4 @@ public class GetapetApplicationTests {
 				o, MediaType.APPLICATION_JSON, mockHttpOutputMessage);
 		return mockHttpOutputMessage.getBodyAsString();
 	}
-
 }
-;

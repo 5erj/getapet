@@ -1,8 +1,6 @@
 package controller;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,44 +16,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.util.JSONWrappedObject;
-
 import error.ErrorResponseBody;
-import representation.Category;
+import repository.PetRepository;
 import representation.Pet;
-import representation.Tag;
+import service.CounterService;
 
 @RestController
 @RequestMapping("/pet")
 public class PetController {
 	
+	@Autowired
+	private CounterService counterService;
+	
+	@Autowired
+	private PetRepository repository;
+	
 	@RequestMapping(method = RequestMethod.POST, 
 			consumes= {MediaType.APPLICATION_JSON_UTF8_VALUE, 
 							MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<?> addPet(@RequestBody @Validated Pet pet) {
-	    System.out.println("Added a pet with name: " + pet.getName());
+		pet.setResourceId(counterService.getNextSequence("pet"));
+		repository.save(pet);
 	    return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value= "/{petId}", 
 			produces= {MediaType.APPLICATION_JSON_UTF8_VALUE, 
 							MediaType.APPLICATION_JSON_VALUE})
-	public Pet getPetById(@PathVariable String petId) {
-	    System.out.println("Retrieved a pet with id: " + petId);
-	    URL[] photoUrls = new URL[1];
-	    try {
-	    	photoUrls[0] = new URL("http://test.com");
-	    } catch (MalformedURLException e){
-	    	e.printStackTrace();
-		}
-		Tag[] tags = {new Tag(0, "bulldog")};
-	    return new Pet(0, new Category(0, "dog"), 
-				"max", photoUrls, tags, "available");
+	public Pet getPetById(@PathVariable Long petId) {
+	    return repository.findOne(petId);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value= "/{petId}")
-	public ResponseEntity<?> deletePetById(@PathVariable String petId) {
-	    System.out.println("Deleted a pet with id: " + petId);
+	public ResponseEntity<?> deletePetById(@PathVariable Long petId) {
+		repository.delete(petId);
 	    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 }
