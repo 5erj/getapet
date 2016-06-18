@@ -64,7 +64,7 @@ public class GetapetApplicationTests {
 	}
 
 	@Test
-	public void createPetAllRequestParams() throws Exception {
+	public void createPetAllRequestProperties() throws Exception {
 		// Build the request body
 		URL[] photoUrls = {new URL("http://test.com")};
 		Tag[] tags = {new Tag(0, "bulldog")};
@@ -79,7 +79,7 @@ public class GetapetApplicationTests {
 	}
 	
 	@Test
-	public void createPetOnlyRequiredParams() throws Exception {
+	public void createPetOnlyRequiredProperties() throws Exception {
 		// Build the request body
 		JSONObject requestBody = new JSONObject();
 		requestBody.put("name", "max");
@@ -92,6 +92,67 @@ public class GetapetApplicationTests {
                 .content(requestBody.toString()))
                 .andExpect(status().isCreated());
 	}
+	
+	@Test
+	public void createPetMissingRequiredProperties() throws Exception {
+		// Build the request body with missing photoUrls property
+		JSONObject requestBody = new JSONObject();
+		requestBody.put("name", "max");
+		
+		// Call the API
+		this.mockMvc.perform(post("/pet")
+                .contentType(contentType)
+                .content(requestBody.toString()))
+                .andExpect(status().isBadRequest());
+	}
+	
+	@Test
+	public void createInvalidTypeProperties() throws Exception {
+		// Build the request body with an array value for name
+		JSONObject requestBody = new JSONObject();
+		URL[] photoUrls = {new URL("http://test.com")};
+		requestBody.put("photoUrls", new JSONArray(photoUrls));
+		requestBody.put("name", new JSONArray(photoUrls));
+		
+		// Call the API
+		this.mockMvc.perform(post("/pet")
+                .contentType(contentType)
+                .content(requestBody.toString()))
+                .andExpect(status().isBadRequest());
+	}
+	
+	@Test
+	public void createSomeOptionalProperties() throws Exception {
+		// Build the request body
+		JSONObject requestBody = new JSONObject();
+		requestBody.put("name", "max");
+		requestBody.put("status", "available");
+		URL[] photoUrls = {new URL("http://test.com")};
+		requestBody.put("photoUrls", new JSONArray(photoUrls));
+		
+		// Call the API
+		this.mockMvc.perform(post("/pet")
+                .contentType(contentType)
+                .content(requestBody.toString()))
+                .andExpect(status().isCreated());
+	}
+	
+	@Test
+	public void createInvalidStatusProperty() throws Exception {
+		// Build the request body with an invalid value for the status property
+		JSONObject requestBody = new JSONObject();
+		requestBody.put("name", "max");
+		requestBody.put("status", "unknown");
+		URL[] photoUrls = {new URL("http://test.com")};
+		requestBody.put("photoUrls", new JSONArray(photoUrls));
+		
+		// Call the API
+		this.mockMvc.perform(post("/pet")
+                .contentType(contentType)
+                .content(requestBody.toString()))
+                .andExpect(status().isBadRequest());
+	}
+	
 
 	protected String json(Object o) throws IOException {
 		MockHttpOutputMessage mockHttpOutputMessage = 
