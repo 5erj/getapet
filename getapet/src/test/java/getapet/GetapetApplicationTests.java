@@ -1,6 +1,10 @@
 package getapet;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -152,6 +156,18 @@ public class GetapetApplicationTests {
                 .content(requestBody.toString()))
                 .andExpect(status().isBadRequest());
 	}
+	
+	@Test
+	public void getById() throws Exception {
+		// Call the API
+		this.mockMvc.perform(get("/pet/0")
+                .accept(contentType))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.id", is(0)))
+                .andExpect(jsonPath("$.name", is("max")));
+	}
+	
 	
 
 	protected String json(Object o) throws IOException {
