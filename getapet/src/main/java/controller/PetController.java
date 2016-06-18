@@ -52,6 +52,12 @@ public class PetController {
 	    return new Pet(0, new Category(0, "dog"), 
 				"max", photoUrls, tags, "available");
 	}
+	
+	@RequestMapping(method = RequestMethod.DELETE, value= "/{petId}")
+	public ResponseEntity<?> deletePetById(@PathVariable String petId) {
+	    System.out.println("Deleted a pet with id: " + petId);
+	    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
 }
 
 

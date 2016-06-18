@@ -1,8 +1,9 @@
 package getapet;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -66,7 +67,8 @@ public class GetapetApplicationTests {
 	public void setup() throws Exception {
 		this.mockMvc = webAppContextSetup(webApplicationContext).build();
 	}
-
+	
+	/** -------------- POST /pet --------------------------- */
 	@Test
 	public void createPetAllRequestProperties() throws Exception {
 		// Build the request body
@@ -157,6 +159,7 @@ public class GetapetApplicationTests {
                 .andExpect(status().isBadRequest());
 	}
 	
+	/** -------------- GET /pet/{petId} --------------------------- */
 	@Test
 	public void getById() throws Exception {
 		// Call the API
@@ -168,8 +171,15 @@ public class GetapetApplicationTests {
                 .andExpect(jsonPath("$.name", is("max")));
 	}
 	
+	/** -------------- DELETE /pet/{petId} --------------------------- */
+	@Test
+	public void deleteById() throws Exception {
+		// Call the API
+		this.mockMvc.perform(delete("/pet/0")
+                .accept(contentType))
+                .andExpect(status().isNoContent());
+	}
 	
-
 	protected String json(Object o) throws IOException {
 		MockHttpOutputMessage mockHttpOutputMessage = 
 				new MockHttpOutputMessage();
