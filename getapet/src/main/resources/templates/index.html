@@ -2,9 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+	<!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
-    <p th:text="'Hello, ' + ${name} + '!'" />
+	<div id="header">
+		<div id="logo">
+			<img src="img/paw.png"/>
+			<span>Get-A-Pet</span>
+		</div>
+		
+		<div id="navbar">
+			<a>MY PETS</a>
+			<a>DOG</a>
+			<a>CAT</a>
+			<a>BIRD</a>
+			<a>FISH</a>
+		</div>
+	</div>
+	
+	<div id="content">
+		<div class="arrow-left"></div>
+		<img src="img/dog-banner.png"/>
+		<div class="arrow-right"></div>
+	</div>
 </body>
 </html>

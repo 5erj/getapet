@@ -1,5 +1,61 @@
-@CHARSET "ISO-8859-1";
+body {
+	width: 1200px;
+	margin: auto;
+	padding-top: 20px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-p {
-	color: red;
+#header {
+	overflow: hidden;
+	text-align: bottom;
+}
+
+#logo {
+	float: left;
+	width: 10%;
+	color: #003399;
+	text-align: center;
+}
+
+#logo span {
+	display: block;
+}
+
+#navbar {
+	float: right;
+	width: 75%;
+	text-align: right;
+	padding-top: 100px;
+}
+
+#navbar a {
+	color: #003399;
+	padding-right: 25px;
+	padding-left: 25px;
+}
+
+#content {
+	padding-top: 25px;
+	text-align: center;
+	overflow: hidden;
+}
+
+div.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-bottom: 20px solid transparent;
+	border-top: 20px solid transparent;
+	border-right: 20px solid black;
+	float: left;
+	margin-top: 250px;
+}
+
+div.arrow-right {
+	width: 0; 
+	height: 0; 
+	border-bottom: 20px solid transparent;
+	border-top: 20px solid transparent;
+	border-left: 20px solid black;
+	float: right;
+	margin-top: 250px;
 }
