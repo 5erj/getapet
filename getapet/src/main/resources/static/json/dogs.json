@@ -1,0 +1,14 @@
+[
+	{
+		"name": "max",
+		"status": "available"
+	},
+	{
+	     "name": "buddy",
+	     "status": "available"
+	}, 
+	{
+	     "name": "charlie",
+	     "status": "sold"
+	}
+]

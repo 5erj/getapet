@@ -4,5 +4,6 @@
 angular
 	.module('getapetApp', [
        // dependencies
+       'ngRoute',
 	   'dogList'
     ]);
