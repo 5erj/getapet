@@ -9,5 +9,6 @@ angular
        'ui.bootstrap',
 	   'petList',
 	   'petDetails',
-	   'petRetrieve'
+	   'petRetrieve',
+	   'petCreate'
     ]);

@@ -11,7 +11,7 @@ angular
 				self.retrievePet = function() {
 					return Pet.get({petId: self.petId}, 
 							function(value, responseHeaders) {
-						console.log(value);
+						self.pet = value;
 					})
 				}
 				

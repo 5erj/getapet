@@ -16,8 +16,8 @@ angular.
         when('/dogs', {
             template: '<pet-list animal="dog"></pet-list>'
           }).
-          when('/details', {
-              template: '<pet-details></pet-details>'
+          when('/create', {
+              template: '<pet-create></pet-create>'
             }).
         otherwise('/');
     }

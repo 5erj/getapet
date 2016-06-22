@@ -38,11 +38,11 @@
 	
 	<div>
 		<div ng-repeat="pet in $ctrl.pets | filter:$ctrl.query" class="thumb thumbnail">
-			<img src="{{pet.photoUrls[0]}}" />
+			<img ng-src="{{pet.photoUrls[0]}}" />
 			<div class="caption">
 				<p>{{pet.name}}</p>
 				<p>
-					<a href="#!/details?pet={{pet}}" class="btn btn-primary" role="button">More Info</a>
+					<a href="#!/create?pet={{pet}}" class="btn btn-primary" role="button">More Info</a>
 				</p>
 			</div>
 		</div>
