@@ -11,7 +11,7 @@ angular.
         				'<div class="arrow-right"></div>'
         }).
         when('/my-pets', {
-            template: '<p>yes</p>'
+            template: '<pet-retrieve></pet-retrieve>'
           }).
         when('/dogs', {
             template: '<pet-list animal="dog"></pet-list>'

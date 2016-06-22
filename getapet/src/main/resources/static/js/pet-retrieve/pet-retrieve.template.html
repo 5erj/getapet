@@ -1,0 +1,10 @@
+<form ng-submit="$ctrl.retrievePet()">
+	<p>In order to retrieve information about your pet, enter its identification number
+	below then click on 'Retrieve'.</p>
+  <div class="form-group">
+    <label for="pet-retrieve-inputIdentification">Pet identification number: </label>
+    <input type="text" class="form-control" id="pet-retrieve-inputIdentification" 
+    		ng-Model="$ctrl.petId" placeholder="<Identification number that was issued when you requested your pet>">
+  </div>
+  <button type="submit" class="btn btn-default">Retrieve</button>
+</form>

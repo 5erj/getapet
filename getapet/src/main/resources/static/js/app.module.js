@@ -7,5 +7,7 @@ angular
        'ngAnimate',
        'ngRoute',
        'ui.bootstrap',
-	   'petList'
+	   'petList',
+	   'petDetails',
+	   'petRetrieve'
     ]);

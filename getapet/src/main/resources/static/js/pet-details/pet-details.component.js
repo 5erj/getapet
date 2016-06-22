@@ -4,8 +4,8 @@ angular
 	.module('petDetails')
 	.component('petDetails', {
 		templateUrl: 'js/pet-details/pet-details.template.html',
-		controller: ['$routeParams', '$http', 'Pet',
-		    function PetDetailsController($routeParams, $http, Pet) {
+		controller: ['$routeParams', 'Pet',
+		    function PetDetailsController($routeParams, Pet) {
 			 	// Parse the pet JSON from the query parameter
 				this.pet = JSON.parse($routeParams.pet);
 				
