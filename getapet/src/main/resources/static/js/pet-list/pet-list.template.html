@@ -1,4 +1,4 @@
-<div class="dog-list">
+<div class="pet-list">
 	<form>
 		<div class="form-group">
 			<label for="searchAny" class="control-label">Search Any:</label> 
@@ -31,10 +31,10 @@
 	</form>
 	
 	<div>
-		<a ng-repeat="dog in $ctrl.dogs | filter:$ctrl.query" href="#" class="thumb thumbnail">
-			<img src="{{dog.photoUrls[0]}}" />
+		<a ng-repeat="pet in $ctrl.pets | filter:$ctrl.query" href="#" class="thumb thumbnail">
+			<img src="{{pet.photoUrls[0]}}" />
 			<div class="caption">
-				{{dog.name}}
+				{{pet.name}}
 			</div>
 		</a>
 	</div>

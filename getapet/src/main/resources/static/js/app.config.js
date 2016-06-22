@@ -6,7 +6,7 @@ angular.
 
       $routeProvider.
         when('/dogs', {
-          template: '<dog-list></dog-list>'
+          template: '<pet-list animal="dog"></pet-list>'
         }).
         when('/', {
         	template: '<div class="arrow-left"></div>' +

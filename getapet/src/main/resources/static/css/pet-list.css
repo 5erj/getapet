@@ -1,12 +1,12 @@
-.dog-list {
+.pet-list {
 	text-align: left;
 }
 
-.dog-list form {
+.pet-list form {
 	float: left;
 }
 
-.dog-list .thumb {
+.pet-list .thumb {
 	display: inline-block;
 	float: left;
 	margin: 20px;

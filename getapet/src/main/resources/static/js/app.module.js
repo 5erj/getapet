@@ -7,5 +7,5 @@ angular
        'ngAnimate',
        'ngRoute',
        'ui.bootstrap',
-	   'dogList'
+	   'petList'
     ]);
