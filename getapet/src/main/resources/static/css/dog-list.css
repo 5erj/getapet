@@ -1,3 +1,7 @@
+.dog-list {
+	text-align: left;
+}
+
 .dog-list form {
 	float: left;
 }
@@ -6,8 +10,4 @@
 	display: inline-block;
 	float: left;
 	margin: 20px;
-}
-
-.dog-list .form-group {
-	text-align: left;
 }
