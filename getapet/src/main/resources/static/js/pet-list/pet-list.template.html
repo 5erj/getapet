@@ -37,7 +37,7 @@
 	</form>
 	
 	<div>
-		<div ng-repeat="pet in $ctrl.pets | filter:$ctrl.query" href="#" class="thumb thumbnail">
+		<div ng-repeat="pet in $ctrl.pets | filter:$ctrl.query" class="thumb thumbnail">
 			<img src="{{pet.photoUrls[0]}}" />
 			<div class="caption">
 				<p>{{pet.name}}</p>
