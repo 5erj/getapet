@@ -19,7 +19,7 @@ public class Pet {
 	private long resourceId;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
-	private int id;
+	private Integer id;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private Category category;
@@ -47,7 +47,7 @@ public class Pet {
 	 */
 	Pet() {}
 	
-	public Pet(int id, Category category, String name, URL[] photoUrls, 
+	public Pet(Integer id, Category category, String name, URL[] photoUrls, 
 			Tag[] tags, String status) {
 		this.id = id;
 		this.category = category;
@@ -57,7 +57,7 @@ public class Pet {
 		this.status = status;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	
