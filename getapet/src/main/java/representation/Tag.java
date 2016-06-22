@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class Tag {
 	@JsonInclude(JsonInclude.Include.NON_NULL)
-	private int id;
+	private Integer id;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private String name;
@@ -15,12 +15,12 @@ public class Tag {
 	 */
 	Tag() {}
 	
-	public Tag(int id, String name) {
+	public Tag(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

@@ -1,7 +1,5 @@
 package representation;
 
-import java.net.URL;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -29,7 +27,7 @@ public class Pet {
 	
 	@NotNull
 	@Size(min=1)
-	private URL[] photoUrls;
+	private String[] photoUrls;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private Tag[] tags;
@@ -47,7 +45,7 @@ public class Pet {
 	 */
 	Pet() {}
 	
-	public Pet(Integer id, Category category, String name, URL[] photoUrls, 
+	public Pet(Integer id, Category category, String name, String[] photoUrls, 
 			Tag[] tags, String status) {
 		this.id = id;
 		this.category = category;
@@ -71,7 +69,7 @@ public class Pet {
 	public String getName() {
 		return name;
 	}
-	public URL[] getPhotoUrls() {
+	public String[] getPhotoUrls() {
 		return photoUrls;
 	}
 	public Tag[] getTags() {

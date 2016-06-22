@@ -17,12 +17,7 @@ angular
 				}
 				
 				this.createPet = function() {
-					var pet = new Pet({
-						"name": "Max",
-						"photoUrls": [
-							'http://localhost:8080/img/beagle.jpg'
-						]
-					});
+					var pet = new Pet(self.pet);
 					
 					return pet.$save(function(value, responseHeaders) {
 						var petLocationURL = responseHeaders('Location');

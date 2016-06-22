@@ -16,7 +16,7 @@
 		{
 			"name": "Large"
 		}],
-		"status": "Available"
+		"status": "available"
 	},
 	{
 		"category": {
@@ -35,7 +35,7 @@
 		{
 			"name": "Large"
 		}],
-	     "status": "Available"
+	     "status": "available"
 	}, 
 	{
 	    "category": {
@@ -54,6 +54,6 @@
 		{
 			"name": "Medium"
 		}],
-	     "status": "Sold"
+	     "status": "sold"
 	}
 ]

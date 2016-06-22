@@ -82,7 +82,7 @@ public class GetapetApplicationTests {
         this.petRepository.deleteAll();
         this.counterRepository.deleteAll();
         
-        URL[] photoUrls = {new URL("http://imgur.com/12345")};
+        String[] photoUrls = {"http://imgur.com/12345"};
 		Tag[] tags = {new Tag(0, "bulldog")};
 		Pet pet = new Pet(10, new Category(0, "dog"), 
 				"max", photoUrls, tags, "available");
@@ -97,7 +97,7 @@ public class GetapetApplicationTests {
 		int id = 1;
 		Category category = new Category(0, "cat");
 		String name = "garfield";
-		URL[] photoUrls = {new URL("http://imgur.com/1234567")};
+		String[] photoUrls = {"http://imgur.com/1234567"};
 		Tag[] tags = {new Tag(0, "orange tabby")};
 		String status = "sold";
 		
