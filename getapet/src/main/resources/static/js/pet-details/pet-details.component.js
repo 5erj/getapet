@@ -25,7 +25,9 @@ angular
 					});
 					
 					return pet.$save(function(value, responseHeaders) {
-						console.log(value);
+						var petLocationURL = responseHeaders('Location');
+						self.petId = petLocationURL.substring(
+											petLocationURL.lastIndexOf('/') + 1);
 					});
 				}
 			}]
