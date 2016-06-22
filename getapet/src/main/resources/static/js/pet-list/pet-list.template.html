@@ -1,15 +1,21 @@
 <div class="pet-list">
 	<form>
 		<div class="form-group">
-			<label for="searchAny" class="control-label">Search Any:</label> 
+			<label for="searchAny" class="control-label">Search:</label> 
 			<input type="text" ng-model="$ctrl.query.$" class="form-control" id="searchAny"
-				placeholder="Name, Tag ..." />
+				placeholder="Name, tag, status ..." />
 		</div>
 
 		<div class="form-group">
-			<label for="searchName" class="control-label">Search Name:</label> 
+			<label for="searchName" class="control-label">Search by name:</label> 
 			<input type="text" ng-model="$ctrl.query.name" class="form-control" 
 						id="searchName" placeholder="Pet Name" />
+		</div>
+		
+		<div class="form-group">
+			<label for="searchTag" class="control-label">Search by tag:</label> 
+			<input type="text" ng-model="$ctrl.tagToSearch" class="form-control" 
+						id="searchTag" ng-change='$ctrl.addSearchTag()' placeholder="Tags (e.g. bulldog, large...))" />
 		</div>
 
 		<div class="form-group">
