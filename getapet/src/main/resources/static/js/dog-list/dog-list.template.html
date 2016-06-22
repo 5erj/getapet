@@ -33,6 +33,9 @@
 	<div>
 		<a ng-repeat="dog in $ctrl.dogs | filter:$ctrl.query" href="#" class="thumb thumbnail">
 			<img src="{{dog.photoUrls[0]}}" />
+			<div class="caption">
+				{{dog.name}}
+			</div>
 		</a>
 	</div>
 </div>
