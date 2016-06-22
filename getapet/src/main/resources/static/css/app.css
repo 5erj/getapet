@@ -7,35 +7,20 @@ body {
 
 #header {
 	overflow: hidden;
-	text-align: bottom;
 }
 
-#logo {
-	float: left;
-	width: 10%;
-	color: #003399;
-	text-align: center;
-}
-
-#logo span {
-	display: block;
+#logo, #navbar{
+	display: inline-block;
 }
 
 #navbar {
 	float: right;
-	width: 75%;
-	text-align: right;
-	padding-top: 100px;
-}
-
-#navbar a {
-	color: #003399;
-	padding-right: 25px;
-	padding-left: 25px;
+	padding-top: 50px;
+	padding-right: 20px;
 }
 
 #content {
-	padding-top: 25px;
+	padding-top: 15px;
 	text-align: center;
 	overflow: hidden;
 }
@@ -58,4 +43,10 @@ div.arrow-right {
 	border-left: 20px solid black;
 	float: right;
 	margin-top: 250px;
+}
+
+/* Needed by bootstrap UI to remedy styling problems for links with empty href*/
+.nav, .pagination, .carousel, .panel-title a 
+{ 
+	cursor: pointer; 
 }

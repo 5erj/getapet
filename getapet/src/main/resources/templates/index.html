@@ -2,13 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org" ng-app="getapetApp">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-   <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"/> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dog-list.css"/>
     <link rel="stylesheet" type="text/css" href="css/app.css"/>
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-1.3.3.min.js"></script>
     <script src="js/app.module.js"></script>
     <script src="js/app.config.js"></script>
     <script src="js/dog-list/dog-list.module.js"></script>
@@ -18,21 +19,26 @@
 	<div id="header">
 		<a id="logo" href="#!/">
 			<img src="img/paw.png"/>
-			<span>Get-A-Pet</span>
 		</a>
 		
 		<div id="navbar">
-			<a>MY PETS</a>
-			<a href="#!/dogs">DOG</a>
-			<a>CAT</a>
-			<a>BIRD</a>
-			<a>FISH</a>
+			<ul class="nav nav-pills">
+	  			<li class="active">
+	  				<a href="#!/dogs">DOG</a>
+	  			</li>
+	  			<li>
+	  				<a href="#!/cats">CAT</a>
+	  			</li>
+	  			<li>
+	  				<a href="#!/birds">BIRD</a>
+	  			</li>
+			</ul>
 		</div>
 	</div>
 	
-	<div id="content" ng-view="">
+	<div id="content" class="well" ng-view="">
 		
 	</div>
-	
+
 </body>
 </html>

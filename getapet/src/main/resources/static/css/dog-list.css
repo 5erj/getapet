@@ -1,0 +1,13 @@
+.dog-list form {
+	float: left;
+}
+
+.dog-list .thumb {
+	display: inline-block;
+	float: left;
+	margin: 20px;
+}
+
+.dog-list .form-group {
+	text-align: left;
+}

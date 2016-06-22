@@ -4,6 +4,8 @@
 angular
 	.module('getapetApp', [
        // dependencies
+       'ngAnimate',
        'ngRoute',
+       'ui.bootstrap',
 	   'dogList'
     ]);

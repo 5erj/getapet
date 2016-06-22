@@ -1,6 +1,27 @@
-<ul>
-	<li ng-repeat="dog in $ctrl.dogs">
-		<span>{{dog.name}}</span>
-		<p>{{dog.status}}</p>
-	</li>
-</ul>
+<div class="dog-list">
+	<form>
+		<div class="form-group">
+			<label for="searchAny" class="control-label">Search Any:</label> <input
+				type="text" class="form-control" id="searchAny"
+				placeholder="Name, Tag ..." />
+		</div>
+
+		<div class="form-group">
+			<label for="searchName" class="control-label">Search Name:</label> <input
+				type="text" class="form-control" id="searchName"
+				placeholder="Pet Name" />
+		</div>
+
+		<div class="form-group">
+			<label for="searchStatus" class="control-label">Search
+				Status:</label> <input type="text" class="form-control" id="searchStatus"
+				placeholder="Availability status" />
+		</div>
+	</form>
+	
+	<div>
+		<a ng-repeat="dog in $ctrl.dogs" href="#" class="thumb thumbnail">
+			<img src="{{dog.photoUrls[0]}}" />
+		</a>
+	</div>
+</div>
