@@ -1,0 +1,43 @@
+<table class="getapet-pet-details">
+	<tr class="detail-row">
+		<td class="photo"><img src={{$ctrl.pet.photoUrls[0]}}/></td>
+		<td class="details">
+			<form class="form-horizontal">
+			
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Name:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static">{{$ctrl.pet.name}}</p>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Tags:</label>
+					<div class="col-sm-10">
+						
+						<p class="form-control-static">
+							<span ng-repeat="tag in $ctrl.pet.tags">
+							{{tag.name}}<span ng-if="!$last">,</span>
+							</span>
+						</p>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Status:</label>
+					<div class="col-sm-10">
+						<p class="form-control-static">{{$ctrl.pet.status}}</p>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2"></label>
+					<div class="col-sm-10">
+						<button type="submit" class="btn btn-default"
+							ng-disabled="$ctrl.isSold()">Get-this-pet!</button>
+					</div>
+				</div>
+			</form>
+		</td>
+	</tr>
+</table>

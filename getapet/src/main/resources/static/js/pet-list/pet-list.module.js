@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('petList', ['ui.bootstrap']);
+angular.module('petList', ['petDetails', 'ui.bootstrap']);

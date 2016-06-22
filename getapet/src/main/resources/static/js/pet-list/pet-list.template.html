@@ -31,11 +31,14 @@
 	</form>
 	
 	<div>
-		<a ng-repeat="pet in $ctrl.pets | filter:$ctrl.query" href="#" class="thumb thumbnail">
+		<div ng-repeat="pet in $ctrl.pets | filter:$ctrl.query" href="#" class="thumb thumbnail">
 			<img src="{{pet.photoUrls[0]}}" />
 			<div class="caption">
-				{{pet.name}}
+				<p>{{pet.name}}</p>
+				<p>
+					<a href="#!/details?pet={{pet}}" class="btn btn-primary" role="button">More Info</a>
+				</p>
 			</div>
-		</a>
+		</div>
 	</div>
 </div>

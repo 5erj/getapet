@@ -1,0 +1,12 @@
+.getapet-pet-details {
+	width: 100%;
+}
+
+.getapet-pet-details .photo {
+	text-align: right;
+	width: 20%;
+}
+
+.getapet-pet-details .details {
+	width: 80%;
+}

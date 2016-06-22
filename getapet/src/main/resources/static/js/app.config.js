@@ -5,14 +5,17 @@ angular.
       $locationProvider.hashPrefix('!');
 
       $routeProvider.
-        when('/dogs', {
-          template: '<pet-list animal="dog"></pet-list>'
-        }).
         when('/', {
         	template: '<div class="arrow-left"></div>' +
         				'<img src="img/dog-banner.png"/>' +
         				'<div class="arrow-right"></div>'
         }).
+        when('/dogs', {
+            template: '<pet-list animal="dog"></pet-list>'
+          }).
+          when('/details', {
+              template: '<pet-details></pet-details>'
+            }).
         otherwise('/');
     }
   ]);

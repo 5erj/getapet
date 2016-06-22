@@ -1,41 +1,59 @@
 [
 	{
 		"category": {
-			"name": "dog"
+			"name": "Dog"
 		},
-		"name": "max",
+		"name": "Max",
 		"photoUrls": [
 			"/img/beagle.jpg"
 		],
-		"tags": [
-			"Beagle"
-		],
-		"status": "available"
+		"tags": [{
+			"name": "Beagle"
+		},
+		{
+			"name": "Brown/White"
+		},
+		{
+			"name": "Large"
+		}],
+		"status": "Available"
 	},
 	{
 		"category": {
-			"name": "dog"
+			"name": "Dog"
 		},
-	     "name": "buddy",
+	     "name": "Buddy",
 	     "photoUrls": [
 			"/img/german-shepherd.jpg"
 		],
-		"tags": [
-			"German Shepherd"
-		],
-	     "status": "available"
+		"tags": [{
+			"name": "German Shepherd"
+		},
+		{
+			"name": "Brown/Black"
+		},
+		{
+			"name": "Large"
+		}],
+	     "status": "Available"
 	}, 
 	{
 	    "category": {
-			"name": "dog"
+			"name": "Dog"
 		},
-	     "name": "charlie",
+	     "name": "Charlie",
 	     "photoUrls": [
 			"/img/bulldog.jpg"
 		],
-		"tags": [
-			"Bulldog"
-		],
-	     "status": "sold"
+		"tags": [{
+			"name": "Bulldog"
+		},
+		{
+			"name": "Brown/White"
+		},
+		{
+			"name": "Medium"
+		}],
+	     "status": "Sold"
 	}
 ]
