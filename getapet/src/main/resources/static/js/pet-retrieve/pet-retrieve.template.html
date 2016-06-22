@@ -1,11 +1,20 @@
-<form ng-submit="$ctrl.retrievePet()">
-	<p>In order to retrieve information about your pet, enter its identification number
-	below then click on 'Retrieve'.</p>
-  <div class="form-group">
-    <label for="pet-retrieve-inputIdentification">Pet identification number: </label>
-    <input type="text" class="form-control" id="pet-retrieve-inputIdentification" 
-    		ng-Model="$ctrl.petId" placeholder="<Identification number that was issued when you requested your pet>">
-  </div>
-  <button type="submit" class="btn btn-default">Retrieve</button>
-  <pet-details ng-If="$ctrl.pet" serializedpet="{{$ctrl.pet}}"></pet-details>
-</form>
+<div class="pet-retrieve">
+	<form ng-submit="$ctrl.retrievePet()">
+		<p>In order to retrieve information about your pet, enter its identification number
+		below then click on 'Retrieve'.</p>
+	  <div class="form-group">
+	    <label for="pet-retrieve-inputIdentification">Pet identification number: </label>
+	    <input type="text" class="form-control" id="pet-retrieve-inputIdentification" 
+	    		ng-Model="$ctrl.petId" placeholder="<Identification number that was issued when you requested your pet>">
+	  </div>
+	  <button type="submit" class="btn btn-default">Retrieve</button>
+	  <pet-details ng-If="$ctrl.pet" serializedpet="{{$ctrl.pet}}"></pet-details>
+	</form>
+	
+	<form ng-If="$ctrl.pet" ng-submit="$ctrl.deletePet()">
+		<p>In order to disown this pet, click on Disown below.</p>
+	  	<button type="submit" class="btn btn-default">Disown</button>
+	</form>
+	
+	<p class="deletion-msg" ng-Show="$ctrl.deletedPet">You no longer own this pet.</p>
+</div>
