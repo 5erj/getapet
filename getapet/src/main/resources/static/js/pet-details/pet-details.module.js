@@ -2,5 +2,6 @@
 
 angular.module('petDetails', [
     'ngRoute',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'pet'
 ]);
