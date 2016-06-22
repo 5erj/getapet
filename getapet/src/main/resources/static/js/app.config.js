@@ -10,6 +10,9 @@ angular.
         				'<img src="img/dog-banner.png"/>' +
         				'<div class="arrow-right"></div>'
         }).
+        when('/my-pets', {
+            template: '<p>yes</p>'
+          }).
         when('/dogs', {
             template: '<pet-list animal="dog"></pet-list>'
           }).
