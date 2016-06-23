@@ -5,7 +5,7 @@
 		},
 		"name": "Max",
 		"photoUrls": [
-			"/img/beagle.jpg"
+			"app/img/dogs/beagle.jpg"
 		],
 		"tags": [{
 			"name": "Beagle"
@@ -24,7 +24,7 @@
 		},
 	     "name": "Buddy",
 	     "photoUrls": [
-			"/img/german-shepherd.jpg"
+			"app/img/dogs/german-shepherd.jpg"
 		],
 		"tags": [{
 			"name": "German Shepherd"
@@ -43,7 +43,7 @@
 		},
 	     "name": "Charlie",
 	     "photoUrls": [
-			"/img/bulldog.jpg"
+			"app/img/dogs/bulldog.jpg"
 		],
 		"tags": [{
 			"name": "Bulldog"

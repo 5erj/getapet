@@ -3,7 +3,7 @@
 angular
 	.module('petCreate')
 	.component('petCreate', {
-		templateUrl: 'js/pet-create/pet-create.template.html',
+		templateUrl: 'app/pet-create/pet-create.template.html',
 		controller: ['$routeParams', 'Pet',
 		    function PetCreateController($routeParams, Pet) {
 			 	// Parse the pet JSON from the query parameter

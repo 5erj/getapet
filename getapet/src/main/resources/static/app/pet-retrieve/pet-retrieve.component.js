@@ -3,7 +3,7 @@
 angular
 	.module('petRetrieve')
 	.component('petRetrieve', {
-		templateUrl: 'js/pet-retrieve/pet-retrieve.template.html',
+		templateUrl: 'app/pet-retrieve/pet-retrieve.template.html',
 		controller: ['Pet', 
 		    function PetRetrieveController(Pet) {
 				// Flag to control the message that needs to be 

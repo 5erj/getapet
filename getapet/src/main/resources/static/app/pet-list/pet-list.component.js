@@ -6,14 +6,14 @@ angular
 		bindings: {
 			animal: '@'
 		},
-		templateUrl: 'js/pet-list/pet-list.template.html',
+		templateUrl: 'app/pet-list/pet-list.template.html',
 		controller: ['$http', 
 		    function DogListController($http) {
 				var self = this;
 				// Initialize the query filter to match anything
 				this.query = {$:''};
 			
-				$http.get('json/' + this.animal + 's.json').then(function(response) {
+				$http.get('app/data/' + this.animal + 's.json').then(function(response) {
 			       self.pets = response.data;
 			    });
 				
