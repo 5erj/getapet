@@ -65,6 +65,12 @@
 		$('#logo').click(function() {
 			$('#navbar li').removeClass('active');
 		})
+		
+		$(window).on('hashchange', function(e){
+			$('#navbar li a[href != "' + window.location.hash + '"]').parent().removeClass('active');
+			$('#navbar li a[href = "' + window.location.hash + '"]').parent().addClass('active');
+			
+		});
 	</script>
 
 </body>
