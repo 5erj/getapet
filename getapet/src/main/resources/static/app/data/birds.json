@@ -1,0 +1,40 @@
+[
+	{
+		"category": {
+			"name": "Bird"
+		},
+		"name": "Tweety",
+		"photoUrls": [
+			"app/img/birds/hummingbird.jpg"
+		],
+		"tags": [{
+			"name": "Hummingbird"
+		},
+		{
+			"name": "Red/Green"
+		},
+		{
+			"name": "Small"
+		}],
+		"status": "available"
+	},
+	{
+		"category": {
+			"name": "Bird"
+		},
+		"name": "Coco",
+		"photoUrls": [
+			"app/img/birds/parrot.jpg"
+		],
+		"tags": [{
+			"name": "Parrot"
+		},
+		{
+			"name": "Red/Green/Blue"
+		},
+		{
+			"name": "Large"
+		}],
+		"status": "available"
+	}
+]

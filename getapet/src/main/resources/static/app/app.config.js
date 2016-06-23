@@ -10,16 +10,19 @@ angular.
         }).
         when('/my-pets', {
             template: '<pet-retrieve></pet-retrieve>'
-          }).
+        }).
         when('/dogs', {
             template: '<pet-list animal="dog"></pet-list>'
-          }).
-          when('/cats', {
-              template: '<pet-list animal="cat"></pet-list>'
-            }).
-          when('/create', {
-              template: '<pet-create></pet-create>'
-            }).
+        }).
+        when('/cats', {
+        	template: '<pet-list animal="cat"></pet-list>'
+        }).
+        when('/birds', {
+            template: '<pet-list animal="bird"></pet-list>'
+        }).
+        when('/create', {
+        	template: '<pet-create></pet-create>'
+        }).
         otherwise('/');
     }
   ]);
