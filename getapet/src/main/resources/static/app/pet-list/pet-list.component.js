@@ -10,8 +10,11 @@ angular
 		controller: ['$http', 
 		    function DogListController($http) {
 				var self = this;
-				// Initialize the query filter to match anything
-				this.query = {$:''};
+				// Initialize the query filter to match everything that's available
+				this.query = {
+					$:'',
+					status: 'available'
+				};
 			
 				$http.get('app/data/' + this.animal + 's.json').then(function(response) {
 			       self.pets = response.data;
