@@ -6,7 +6,7 @@
 	<groupId>org.getapet</groupId>
 	<artifactId>getapet</artifactId>
 	<version>0.0.1</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>getapet</name>
 	<description>Get a Pet Now!</description>
@@ -29,12 +29,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
-		<dependency>
-        	<groupId>org.springframework.boot</groupId>
-        	<artifactId>spring-boot-starter-tomcat</artifactId>
-        	<scope>provided</scope>
-    	</dependency>
-		
 		 <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -45,11 +39,11 @@
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
     		
-        <dependency>
+       <!--  <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-        </dependency>
+        </dependency> -->
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
