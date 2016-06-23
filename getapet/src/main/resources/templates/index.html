@@ -57,19 +57,11 @@
 		
 	</div>
 	
-	<script type="text/javascript">
-		// Control the navbar styles
-		$('#navbar li').click(function() {
-			$(this).addClass('active').siblings('li').removeClass('active');
-		})
-		$('#logo').click(function() {
-			$('#navbar li').removeClass('active');
-		})
-		
+	<script type="text/javascript">		
+		// Control the 'active' css style of navigation tabs
 		$(window).on('hashchange', function(e){
 			$('#navbar li a[href != "' + window.location.hash + '"]').parent().removeClass('active');
 			$('#navbar li a[href = "' + window.location.hash + '"]').parent().addClass('active');
-			
 		});
 	</script>
 
