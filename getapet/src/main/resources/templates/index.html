@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="app/pet-details/pet-details.css"/>
     <link rel="stylesheet" type="text/css" href="app/app.css"/>
     
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
@@ -39,7 +40,7 @@
 				<li>
 	  				<a href="#!/my-pets">MY PETS</a>
 	  			</li>
-	  			<li class="active">
+	  			<li>
 	  				<a href="#!/dogs">DOGS</a>
 	  			</li>
 	  			<li>
@@ -55,6 +56,16 @@
 	<div id="content" class="well" ng-view="">
 		
 	</div>
+	
+	<script type="text/javascript">
+		// Control the navbar styles
+		$('#navbar li').click(function() {
+			$(this).addClass('active').siblings('li').removeClass('active');
+		})
+		$('#logo').click(function() {
+			$('#navbar li').removeClass('active');
+		})
+	</script>
 
 </body>
 </html>
