@@ -1,0 +1,78 @@
+[
+	{
+		"category": {
+			"name": "Cat"
+		},
+		"name": "Kitty",
+		"photoUrls": [
+			"app/img/cats/persian.jpg"
+		],
+		"tags": [{
+			"name": "Persian"
+		},
+		{
+			"name": "White"
+		},
+		{
+			"name": "Small"
+		}],
+		"status": "available"
+	},
+	{
+		"category": {
+			"name": "Cat"
+		},
+		"name": "Jasper",
+		"photoUrls": [
+			"app/img/cats/british-shorthair.jpg"
+		],
+		"tags": [{
+			"name": "British Shorthair"
+		},
+		{
+			"name": "Black"
+		},
+		{
+			"name": "Medium"
+		}],
+		"status": "available"
+	},
+	{
+		"category": {
+			"name": "Cat"
+		},
+		"name": "Oscar",
+		"photoUrls": [
+			"app/img/cats/himalayan.jpg"
+		],
+		"tags": [{
+			"name": "Himalayan"
+		},
+		{
+			"name": "Grey"
+		},
+		{
+			"name": "Small"
+		}],
+		"status": "available"
+	},
+	{
+		"category": {
+			"name": "Cat"
+		},
+		"name": "Oreo",
+		"photoUrls": [
+			"app/img/cats/russian-blue.jpg"
+		],
+		"tags": [{
+			"name": "Russian Blue"
+		},
+		{
+			"name": "Grey"
+		},
+		{
+			"name": "Medium"
+		}],
+		"status": "sold"
+	}
+]

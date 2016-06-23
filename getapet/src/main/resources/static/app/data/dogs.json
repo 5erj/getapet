@@ -55,5 +55,62 @@
 			"name": "Medium"
 		}],
 	     "status": "sold"
+	},
+	{
+	    "category": {
+			"name": "Dog"
+		},
+	     "name": "Rocky",
+	     "photoUrls": [
+			"app/img/dogs/golden-retriever.jpg"
+		],
+		"tags": [{
+			"name": "Golden Retriever"
+		},
+		{
+			"name": "Gold"
+		},
+		{
+			"name": "Large"
+		}],
+	     "status": "pending"
+	},
+	{
+	    "category": {
+			"name": "Dog"
+		},
+	     "name": "Jake",
+	     "photoUrls": [
+			"app/img/dogs/pug.jpg"
+		],
+		"tags": [{
+			"name": "Pug"
+		},
+		{
+			"name": "White"
+		},
+		{
+			"name": "Small"
+		}],
+	     "status": "available"
+	},
+	{
+	    "category": {
+			"name": "Dog"
+		},
+	     "name": "Buster",
+	     "photoUrls": [
+			"app/img/dogs/rottweiler.jpg"
+		],
+		"tags": [{
+			"name": "Rottweiler"
+		},
+		{
+			"name": "Black"
+		},
+		{
+			"name": "Large"
+		}],
+	     "status": "available"
 	}
 ]
