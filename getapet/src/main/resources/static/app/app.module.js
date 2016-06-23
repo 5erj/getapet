@@ -7,6 +7,7 @@ angular
        'ngAnimate',
        'ngRoute',
        'ui.bootstrap',
+       'carousel',
 	   'petList',
 	   'petDetails',
 	   'petRetrieve',

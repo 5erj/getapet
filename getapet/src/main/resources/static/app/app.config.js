@@ -6,9 +6,7 @@ angular.
 
       $routeProvider.
         when('/', {
-        	template: '<div class="arrow-left"></div>' +
-        				'<img src="app/img/carousel/dog.png"/>' +
-        				'<div class="arrow-right"></div>'
+        	template: '<carousel></carousel'
         }).
         when('/my-pets', {
             template: '<pet-retrieve></pet-retrieve>'
